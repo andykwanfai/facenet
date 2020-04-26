@@ -129,10 +129,10 @@ def main(args):
                                 else:
                                     output_filename_n = "{}{}".format(filename_base, file_extension)
                                 misc.imsave(output_filename_n, scaled)
-                                text_file.write('%s %d %d %d %d\n' % (output_filename_n, bb[0], bb[1], bb[2], bb[3]))
+                                text_file.write('%s %d %d %d %d\n' % (output_filename_n.encode(encoding="utf-8", errors="strict"), bb[0], bb[1], bb[2], bb[3]))
                         else:
                             print('Unable to align "%s"' % image_path)
-                            text_file.write('%s\n' % (output_filename))
+                            text_file.write('%s\n' % (output_filename.encode(encoding="utf-8", errors="strict")))
                             
     print('Total number of images: %d' % nrof_images_total)
     print('Number of successfully aligned images: %d' % nrof_successfully_aligned)
